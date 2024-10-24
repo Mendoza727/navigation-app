@@ -1,12 +1,23 @@
-import React from "react";
-import { View } from "react-native";
+import React, { useEffect } from "react";
+import { Pressable, Text, View } from "react-native";
 import GlobalStyles from "../../theme/App-theme";
-import { type NavigationProp, useNavigation } from "@react-navigation/native";
+import { DrawerActions, type NavigationProp, useNavigation } from "@react-navigation/native";
 import { PrimaryButtonComponent } from "../../components/PrimaryButtonComponent";
 import { type RootStackParams } from "../../routes/RoutesNavigator";
 
 export const HomeScreen = () => {
-  const { navigate } = useNavigation<NavigationProp<RootStackParams>>();
+  const { navigate, setOptions, dispatch } = useNavigation<NavigationProp<RootStackParams>>();
+
+  useEffect(() => {
+    setOptions({
+        headerLeft: () => (
+          <Pressable onPress={() => dispatch( DrawerActions.toggleDrawer )}>
+            <Text>Menu</Text>
+          </Pressable>
+        )
+    })
+  }, [])
+  
 
   return (
     <View style={GlobalStyles.container}>
