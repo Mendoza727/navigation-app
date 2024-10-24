@@ -13,7 +13,7 @@ export const ProfileScreen = () => {
   return (
     <View style={{
       ...GlobalStyles.container,
-      marginTop: top    
+      marginTop: top
     }}>
         <Text style={{
           ...GlobalStyles.buttonText,

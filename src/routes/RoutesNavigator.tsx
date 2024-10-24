@@ -6,6 +6,8 @@ import { Producto, ProductsScreen } from "../screens/Products/ProductsScreen";
 import { ProductScreen } from "../screens/Products/ProductScreen";
 import { useNavigation } from "@react-navigation/native";
 import { useEffect } from "react";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { Platform } from "react-native";
 
 export type RootStackParams = {
   Home: undefined;
@@ -20,6 +22,7 @@ const Stack = createStackNavigator<RootStackParams>();
 
 const RoutesNavigator = () => {
   const { setOptions } = useNavigation();
+  const { top } = useSafeAreaInsets();
 
   useEffect(() => {
     setOptions({
@@ -36,6 +39,7 @@ const RoutesNavigator = () => {
           elevation: 0,
           shadowColor: "transparent",
         },
+        headerStatusBarHeight: Platform.OS === 'android' ? top : top - 5  
       }}
     >
       <Stack.Screen name="Home" component={HomeScreen} />

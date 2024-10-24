@@ -4,6 +4,7 @@ import GlobalStyles from "../../theme/App-theme";
 import { DrawerActions, type NavigationProp, useNavigation } from "@react-navigation/native";
 import { PrimaryButtonComponent } from "../../components/PrimaryButtonComponent";
 import { type RootStackParams } from "../../routes/RoutesNavigator";
+import { HamburgerMenuComponent } from "../../components/HamburgerMenuComponent";
 
 export const HomeScreen = () => {
   const { navigate, setOptions, dispatch } = useNavigation<NavigationProp<RootStackParams>>();
@@ -11,9 +12,7 @@ export const HomeScreen = () => {
   useEffect(() => {
     setOptions({
         headerLeft: () => (
-          <Pressable onPress={() => dispatch( DrawerActions.toggleDrawer )}>
-            <Text>Menu</Text>
-          </Pressable>
+          <HamburgerMenuComponent />
         )
     })
   }, [])
