@@ -3,6 +3,7 @@ import RoutesNavigator from './RoutesNavigator';
 import { ProfileScreen } from '../screens/Profile/ProfileScreen';
 import { GlobalColors } from '../theme/App-theme';
 import { View } from 'react-native';
+import { BottomTabsNavigator } from './BottomTabsNavigator';
 
 const Drawer = createDrawerNavigator();
 
@@ -25,7 +26,7 @@ export const DrawerNavigator = () => {
         }
       }}
     >
-      <Drawer.Screen name="RoutesNavigator" component={RoutesNavigator} />
+      <Drawer.Screen name="Tabs" component={BottomTabsNavigator} />
       <Drawer.Screen name="Profile" component={ProfileScreen} />
     </Drawer.Navigator>
   );
